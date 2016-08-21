@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>闫方的作品yanfang6180@163.com</title>
+	<link rel="stylesheet" href="css/iconfont/iconfont.css">
+    <link rel="stylesheet" href="swiper/swiper.min.css">
+    <link rel="stylesheet" href="grunt/dest/all.min.css">
+    <script src="grunt/dest/all.min.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=m6ykskNyGNQkGQL7DUMEkpQGBD1pRMI4"></script>
+    <script src="js/baidumap.js"></script>
+<script>
+	window.onload=function(){
+		var oblogLeft=document.getElementById('blog_left');
+		var oblogMiddle=document.getElementById('blog_middle');
+		//导航按钮
+		var aLi_nav=oblogLeft.children[0].children;
+		//导航内容
+		var aLi_con=oblogMiddle.children[0].children[0].children;
+		var oblogMiddle_ul=oblogMiddle.children[0].children[0];
+		var height=aLi_con[0].offsetHeight;
+		var headicon=document.getElementById('headicon');
+		//超酷时钟
+		var oYear=document.getElementById('cool_year');
+		var oTime=document.getElementById('cool_time');
+
+//===============主页面选项卡滑动效果
+       continuousSlide(aLi_con,aLi_nav)
+
+//===============导航拉钩效果
+            lagou(aLi_nav);
+
+//===============作品自动滑动autoslide中的拉钩效果
+        var alagouDiv=document.getElementById('autoslide_ul1').getElementsByTagName('div');
+            lagou(alagouDiv);
+//===============头像转动
+        addEvent(document,'mousemove', function(ev){headmove(ev,headicon)})
+        
+        
+//===============图片时钟
+		clock(oYear,oTime)
+
+		
+//===============作品中自动滑动autoslide
+		autoSlide('autoslide_box','autoslide_ul1','autoslide_ol1','autoslide_left','autoslide_right')
+//===============作品图片滑动piczoom
+     	picturezoom('zoompic_box','zoompic_ul1')
+//===============作品css3-3D环 
+        // picRing_3D('#css3_3Dring',aLi_con[3]);   
+        addEvent(aLi_nav[3],'click',function(){
+            picRing_3D('#css3_3Dring',aLi_con[3]);
+        })
+//==============第一页aboutme环形进度条
+        var circle=document.querySelectorAll('.circle')
+                    addPercent(circle[0],90);
+                    addPercent(circle[1],85);
+                    addPercent(circle[2],80);
+                    addPercent(circle[3],80);
+
+        addEvent(aLi_nav[0],'click',function(){
+                    addPercent(circle[0],90);
+                    addPercent(circle[1],85);
+                    addPercent(circle[2],80);
+                    addPercent(circle[3],80);
+        })
+//=============第一页aboutme长方形进度条
+        rect_bar(); 
+        addEvent(aLi_nav[0],'click',rect_bar);
+//=============最后一页contactme
+        
+        addEvent(aLi_nav[4],'click',function(){
+
+            contactme()
+        });
+       
+	}
+</script>
+</head>
+
+<body>
+	<div id="wrapper">
+		<div id="blog_left">
+			<ul>
+				<li class="active"><i class="iconfont">&#xe67c;</i><span>About me</span></li>
+				<li><i class="iconfont">&#xe67b;</i><span>HTML+CSS</span></li>
+				<li><i class="iconfont">&#xe62e;</i><span>JavaScript</span></li>
+				<li><i class="iconfont">&#xe695;</i><span>CSS3</span></li>
+				<li><i class="iconfont">&#xe640;</i><span>Contact</span></li>
+			</ul>
+		</div>
+		<div id="blog_middle">
+			<div id="con">
+				<ul>
+					<li class="active">
+                        <div class="circle" style="left:0">
+                            <div class="pie_left"><div class="left_half"></div></div>
+                            <div class="pie_right"><div class="right_half"></div></div>
+                            <div class="mask"><span>0</span>%</div>
+                            <div class="note">Html&CSS</div>
+                        </div>
+                        <div class="circle" style="left:0">
+                            <div class="pie_left"><div class="left_half"></div></div>
+                            <div class="pie_right"><div class="right_half"></div></div>
+                            <div class="mask"><span>0</span>%</div>
+                            <div class="note">Javascript</div>
+                        </div>
+                        <div class="circle" style="left:0">
+                            <div class="pie_left"><div class="left_half"></div></div>
+                            <div class="pie_right"><div class="right_half"></div></div>
+                            <div class="mask"><span>0</span>%</div>
+                            <div class="note">Html5&CSS3</div>
+                        </div>
+                        <div class="circle" style="left:0">
+                            <div class="pie_left"><div class="left_half"></div></div>
+                            <div class="pie_right"><div class="right_half"></div></div>
+                            <div class="mask"><span>0</span>%</div>
+                            <div class="note">Jaquery</div>
+                        </div>
+                        <div class="aboutme_rect" >
+                            
+                            <p><em><i>1</i></em>有较好的英语水平，能独立阅读英文参考手册及查阅国外开发社区</p>
+                            <p><em><i>0.9</i></em>熟练掌握HTML、CSS、JavaScript编程，熟悉ECMAScript标准</p>
+                            <p><em><i>0.85</i></em>熟练使用jQuery等主流的JS库，了解其运行机制；</p>
+                            <p><em><i>0.85</i></em>熟悉PC端及移动端的前端开发、多浏览器兼容</p>
+                            <p><em><i>0.65</i></em>了解AngularJS、Bootstrap等</p>
+                            <p><em><i>0.8</i></em>熟悉HTML5/CSS3等常用技术</p>
+                            <p><em><i>0.65</i></em>了解前端模块化，了解前端MVC,了解js面向对象开发</p>
+                            <p><em><i>0.75</i></em>了解前端自动化，熟悉git,grunt，gulp等工具常见用法</p>
+                            <p><em><i>1</i></em>热爱技术研发工作，有良好的工作责任感和团队合作能力</p>
+                            <p><em><i>1</i></em>热爱前端工作，能够自我驱动，紧跟技术潮流</p>
+                        </div>
+
+                    </li>
+					<li>
+						<div id="zoompic_box">
+					        <ul id="zoompic_ul1">
+					            <li><a href="javascript:;" _href="work/Html/linghun/灵魂回响官网.html"target="_blank"><img src="img/imggw/linghun.jpg"></a></li>
+					            <li><a href="javascript:;" _href="work/Html/netease/网易.html" target="_blank"><img src="img/imggw/wangyi.jpg"></a></li>
+					            <li><a href="javascript:;" _href="work/Html/xiaomi/小米.html"target="_blank"><img src="img/imggw/xiaomi.jpg"></a></li>
+					            <li><a href="javascript:;" _href="work/Html/meilishuo/美丽说.html"target="_blank"><img src="img/imggw/meilishuo.jpg"></a></li>
+					            <li><a href="javascript:;" _href="work/Html/jingdong/京东.html"target="_blank"><img src="img/imggw/jingdong.jpg"></a></li>
+					            <li><a href="javascript:;" _href="work/Html/OPPO/OPPO.html"target="_blank"><img src="img/imggw/oppo.jpg"></a></li>
+					            <li><a href="javascript:;" _href="work/Html/360/360播放器1.html"target="_blank"><img src="img/imggw/360.jpg"></a></li>
+					            <li><a href="javascript:;" _href="work/Html/youku/优酷.html"target="_blank"><img src="img/imggw/youku.jpg"></a></li>
+					        </ul>
+					    </div>
+					</li>
+					
+					<li>
+						<div id="autoslide_box">
+						        <a href="javascript:;" id="autoslide_left" style="position: absolute;">←</a>
+						        <a href="javascript:;" id="autoslide_right" style="position: absolute;">→</a>
+						        <ul id="autoslide_ul1">
+
+						            <li class="active">
+						            	<div class="mywork_link" style="background-image: url(img/workthumb/photowall.jpg);"><a href="work/jseffect/picturewall.html" target="blank"><span>照片墙</span></a></div>
+						            	<div class="mywork_link" style="background-image: url(img/workthumb/neteaseslide.jpg);"><a href="work/jseffect/网易幻灯片.html" target="blank"><span>网易幻灯片</span></a></div>
+                                        <div class="mywork_link" style="background-image: url(img/workthumb/appel.jpg);"><a href="work/jseffect/苹果菜单.html" target="blank"><span>苹果菜单</span></a></div>
+                                        <div class="mywork_link" style="background-image: url(img/workthumb/tuntu.jpg);"><a href="work/jseffect/吞吐图片.html" target="blank"><span>吞吐图片</span></a></div>
+						            	<div class="mywork_link" style="background-image: url(img/workthumb/guanwang.jpg);"><a href="work/jseffect/拖拽幻灯片.html" target="blank"><span>拖拽幻灯片</span></a></div>
+						            	<div class="mywork_link" style="background-image: url(img/workthumb/fenkuai.jpg);"><a href="work/jseffect/分块运动.html" target="blank"><span>分块运动</span></a></div>
+						            </li>
+						            <li>
+						            	<div class="mywork_link" style="background-image: url(img/workthumb/photowall.jpg);"><a href="work/jseffect/picturewall.html" target="blank"><span>iPhone图片展示</span></a></div>
+                                        <div class="mywork_link" style="background-image: url(img/workthumb/neteaseslide.jpg);"><a href="work/jseffect/网易幻灯片.html" target="blank"><span>3D图片转换</span></a></div>
+                                        <div class="mywork_link" style="background-image: url(img/workthumb/appel.jpg);"><a href="work/jseffect/苹果菜单.html" target="blank"><span>无缝滚动</span></a></div>
+                                        <div class="mywork_link" style="background-image: url(img/workthumb/tuntu.jpg);"><a href="work/jseffect/吞吐图片.html" target="blank"><span>圆</span></a></div>
+                                        <div class="mywork_link" style="background-image: url(img/workthumb/guanwang.jpg);"><a href="work/jseffect/拖拽幻灯片.html" target="blank"><span>拉钩移入移出</span></a></div>
+                                        <div class="mywork_link" style="background-image: url(img/workthumb/fenkuai.jpg);"><a href="work/jseffect/分块运动.html" target="blank"><span>手风琴</span></a></div>
+						            </li>
+						            <li>
+						            	<div class="mywork_link" style="background-image: url(img/workthumb/photowall.jpg);"><a href="work/jseffect/picturewall.html" target="blank"><span>iPhone图片展示</span></a></div>
+                                        <div class="mywork_link" style="background-image: url(img/workthumb/neteaseslide.jpg);"><a href="work/jseffect/网易幻灯片.html" target="blank"><span>3D图片转换</span></a></div>
+                                        <div class="mywork_link" style="background-image: url(img/workthumb/appel.jpg);"><a href="work/jseffect/苹果菜单.html" target="blank"><span>无缝滚动</span></a></div>
+                                        <div class="mywork_link" style="background-image: url(img/workthumb/tuntu.jpg);"><a href="work/jseffect/吞吐图片.html" target="blank"><span>圆</span></a></div>
+                                        <div class="mywork_link" style="background-image: url(img/workthumb/guanwang.jpg);"><a href="work/jseffect/拖拽幻灯片.html" target="blank"><span>拉钩移入移出</span></a></div>
+                                        <div class="mywork_link" style="background-image: url(img/workthumb/fenkuai.jpg);"><a href="work/jseffect/分块运动.html" target="blank"><span>手风琴</span></a></div>
+						            <li>
+						            	<div class="mywork_link" style="background-image: url(img/workthumb/photowall.jpg);"><a href="work/jseffect/picturewall.html" target="blank"><span>iPhone图片展示</span></a></div>
+                                        <div class="mywork_link" style="background-image: url(img/workthumb/neteaseslide.jpg);"><a href="work/jseffect/网易幻灯片.html" target="blank"><span>3D图片转换</span></a></div>
+                                        <div class="mywork_link" style="background-image: url(img/workthumb/appel.jpg);"><a href="work/jseffect/苹果菜单.html" target="blank"><span>无缝滚动</span></a></div>
+                                        <div class="mywork_link" style="background-image: url(img/workthumb/tuntu.jpg);"><a href="work/jseffect/吞吐图片.html" target="blank"><span>圆</span></a></div>
+                                        <div class="mywork_link" style="background-image: url(img/workthumb/guanwang.jpg);"><a href="work/jseffect/拖拽幻灯片.html" target="blank"><span>拉钩移入移出</span></a></div>
+                                        <div class="mywork_link" style="background-image: url(img/workthumb/fenkuai.jpg);"><a href="work/jseffect/分块运动.html" target="blank"><span>手风琴</span></a></div>
+						            </li>
+						            <li>
+						            	<div class="mywork_link" style="background-image: url(img/workthumb/photowall.jpg);"><a href="work/jseffect/picturewall.html" target="blank"><span>iPhone图片展示</span></a></div>
+                                        <div class="mywork_link" style="background-image: url(img/workthumb/neteaseslide.jpg);"><a href="work/jseffect/网易幻灯片.html" target="blank"><span>3D图片转换</span></a></div>
+                                        <div class="mywork_link" style="background-image: url(img/workthumb/appel.jpg);"><a href="work/jseffect/苹果菜单.html" target="blank"><span>无缝滚动</span></a></div>
+                                        <div class="mywork_link" style="background-image: url(img/workthumb/tuntu.jpg);"><a href="work/jseffect/吞吐图片.html" target="blank"><span>圆</span></a></div>
+                                        <div class="mywork_link" style="background-image: url(img/workthumb/guanwang.jpg);"><a href="work/jseffect/拖拽幻灯片.html" target="blank"><span>拉钩移入移出</span></a></div>
+                                        <div class="mywork_link" style="background-image: url(img/workthumb/fenkuai.jpg);"><a href="work/jseffect/分块运动.html" target="blank"><span>手风琴</span></a></div>
+						            </li>
+						            
+						        </ul>
+						        <ol id="autoslide_ol1">
+						            <li class="active">0</li>
+						            <li>1</li>
+						            <li>2</li>
+						            <li>3</li>
+						            <li>4</li>
+						            
+						        </ol>
+						</div>
+					</li>
+                    <li>
+                        <div id="css3_3Dring">
+                            
+                        </div>
+                    </li>
+   
+					<li>
+                        <div id="contactme">
+                            <p class="target">谢谢欣赏</p>
+                            <p class="target">电话：18210456215</p>
+                            <p class="target">E-mail:yanfang6180@163.com</p>
+                            <p class="target">住址：北京市昌平区平西府</p>
+                            <p class="target">期待您的回复</p>
+                        </div>
+                        <div id="baiduMap"></div>
+                        <div id="downloadresume"></div>
+                    </li>
+
+				</ul>
+
+                <div id="downloadresume" ><a href="闫方的简历.doc" download="闫方的简历">下载简历</a></div>
+			</div>
+		</div>
+		<div id="blog_right">
+			<div id="headicon"><img src="img/headicon/front-yf.png" alt=""></div>
+			<div id="self_intro">
+			      <!-- Swiper -->
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" style="background-image:url(img/logo/logo.png)"></div>
+                        <div class="swiper-slide" style="background-image:url(img/logo/logo.png)"></div>
+                        <div class="swiper-slide" style="background-image:url(img/logo/logo.png)"></div>
+                        <div class="swiper-slide" style="background-image:url(img/logo/logo.png)"></div>
+                        <div class="swiper-slide" style="background-image:url(img/logo/logo.png)"></div>
+                        <div class="swiper-slide" style="background-image:url(img/logo/logo.png)"></div>
+                        <div class="swiper-slide" style="background-image:url(img/logo/logo.png)"></div>
+                        <div class="swiper-slide" style="background-image:url(img/logo/logo.png)"></div>
+                        <div class="swiper-slide" style="background-image:url(img/logo/logo.png)"></div>
+                        <div class="swiper-slide" style="background-image:url(img/logo/logo.png)"></div>
+                        <div class="swiper-slide" style="background-image:url(img/logo/logo.png)"></div>
+                        <div class="swiper-slide" style="background-image:url(img/logo/logo.png)"></div>
+                        
+                        
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+
+                <!-- Swiper JS -->
+                <script src="swiper/swiper.min.js"></script>
+
+                <!-- Initialize Swiper -->
+                <script>
+                var swiper = new Swiper('.swiper-container', {
+                    loop : true,
+                    pagination: '.swiper-pagination',
+                    effect: 'cube',
+                    grabCursor: true,
+                    speed:1000,
+                    autoplay: 500,
+                    cube: {
+                        shadow: true,
+                        slideShadows: true,
+                        shadowOffset: 20,
+                        shadowScale: 0.94
+                    }
+                });
+                </script>
+                <script>
+                    var aswiper_slide=document.getElementsByClassName('swiper-slide');
+                    for (var i = 0; i <6; i++) {
+
+                        aswiper_slide[i].style.backgroundPosition=-200*i+'px 0'
+                    }
+                    for (var i = 6; i <12; i++) {
+
+                        aswiper_slide[i].style.backgroundPosition=-200*(i%6)+'px -200px'
+                    }
+                </script>
+				
+			</div>
+			<div id="cool_clock">
+				<div id="cool_year">
+					<img src="img/clockimg/0.png" alt="">
+					<img src="img/clockimg/0.png" alt="">
+					<img src="img/clockimg/0.png" alt="">
+					<img src="img/clockimg/0.png" alt="">
+					<img src="img/clockimg/year.png" alt="">
+					<img src="img/clockimg/0.png" alt="">
+					<img src="img/clockimg/0.png" alt="">
+					<img src="img/clockimg/month.png" alt="">
+					<img src="img/clockimg/0.png" alt="">
+					<img src="img/clockimg/0.png" alt="">
+					<img src="img/clockimg/seven.png" alt="">
+
+				</div>
+				<div id="cool_time">
+					<img src="img/clockimg/0.png" alt="">
+					<img src="img/clockimg/0.png" alt="">
+					<img src="img/clockimg/sign.png" alt="">
+					<img src="img/clockimg/0.png" alt="">
+					<img src="img/clockimg/0.png" alt="">
+					<img src="img/clockimg/sign.png" alt="">
+					<img src="img/clockimg/0.png" alt="">
+					<img src="img/clockimg/0.png" alt="">
+					<img src="img/clockimg/week.png" alt="">
+					<img src="img/clockimg/one.png" alt="">
+				</div>
+			</div>
+			<div id="social_contact">
+				<a href="javascript:;" class="iconfont">&#xe681;</a>
+                <a href="javascript:;" class="iconfont">&#xe682;</a>
+                <a href="javascript:;" class="iconfont">&#xe683;</a>
+                <a href="javascript:;" class="iconfont">&#xe684;</a>
+                <a href="javascript:;" class="iconfont">&#xe696;</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

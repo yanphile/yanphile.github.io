@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>闫方的作品</title>
+	<link rel="stylesheet" href="">
+	<script src="fenkuai.js"></script>
+	<script src="move.js"></script>
+	<style>
+	body{
+		background:purple;
+	}
+	#thumb_motion{
+		width: 600px;height: 450px;position: absolute;left:50%;top: 50%;margin-top: -225px;margin-left: -300px;
+		background-size:cover; /*==========================/设置背景图片大小，适应父级大小*/
+	}
+	</style>
+	<script>
+		window.onload=function(){
+			var oThumb_motion=document.getElementById('thumb_motion');
+
+			shuttle(oThumb_motion);
+		}
+		
+	</script>
+</head>
+<body>
+	<div id="thumb_motion" ></div>
+</body>
+</html>

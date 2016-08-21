@@ -1,0 +1,525 @@
+   *{
+		margin: 0;padding: 0;list-style: none;
+	}
+	body{
+        background: url(../img/bg.jpg) no-repeat;
+        background-size: cover;
+    }
+	#wrapper{
+		width: 1200px;
+		height: 600px;
+		/*border: 1px solid red;*/
+		margin: 20px auto;
+        box-shadow:0 0 20px #fefcc9, 10px -10px 30px #feec85, -20px -20px 40px #ffae34, 20px -40px 50px #ec760c, -20px -60px 60px #cd4606, 0 -80px 70px #973716, 10px -90px 80px #451b0e,10px -100px 90px red;
+        border-radius: 25px;
+	}
+	#blog_left{
+		float: left;
+		width: 80px;
+		height: 600px;
+		/*background:lime;*/
+	}
+	#blog_left ul{
+        padding-left: 5px;
+        padding-top: 40px;
+	}
+	#blog_left ul li{
+		list-style: none;
+		width: 80px;
+		height: 80px;
+        text-align: center;
+		border-radius: 20px;
+		margin-bottom: 30px;
+		background:purple;
+		position: relative;
+		overflow: hidden;
+        -moz-box-shadow:-5px -5px 10px #000 inset; 
+        -webkit-box-shadow:-5px -5px 10px #000 inset; 
+        box-shadow:-5px -5px 10px #000 inset; 
+
+	}
+    /*========================================iconfont字体*/
+    #blog_left ul li i{
+        display: block;
+        font:40px/80px 微软雅黑;
+        transition: 0.4s all ease;
+
+        
+    }
+    #blog_left ul li:hover i{
+        font-size: 70px;
+        transform: rotate(360deg);
+    }
+	#blog_left ul li span{
+
+            width: 100%;
+            height: 100%;
+            background: rgba(0,9, 153, .6);
+            position: absolute;
+            left: 80px;
+            top: 0;
+            color:lime;
+            line-height: 80px;
+            text-align: center;
+            font-weight:900;
+            
+            border-radius:20px;
+          
+    }
+     @keyframes move360{
+            from{
+                transform: rotate(0deg);
+            }
+            to{
+                transform: rotate(360deg);
+            }
+    }
+     @keyframes move90{
+            from{
+                transform: rotate(0deg);
+            }
+            to{
+                transform: rotate(10deg);
+            }
+    }
+  /*  #blog_left ul li:nth-child(3) i{animation: 1s move360 linear infinite;}
+    #blog_left ul li:nth-child(5) i{animation: 0.1s move90 linear infinite;}*/
+	#blog_left ul li.active{
+		background:#99FF00;
+        -moz-box-shadow:5px 5px 10px #000 inset; 
+        -webkit-box-shadow:5px 5px 10px #000 inset;
+         box-shadow:5px 5px 10px #000 inset; 
+	}
+	#blog_middle{
+		float: left;
+		width: 800px;
+		height: 600px;
+		/*background: yellow;*/
+		margin-left: 10px;
+		overflow-y:hidden;
+	}
+	#blog_middle #con{
+		height: 600px;
+		position: relative;
+	}
+	#blog_middle #con ul{
+		
+	}
+	#blog_middle #con ul li{
+		width: 800px;height: 600px;
+		
+		text-align: center;
+		position: absolute;
+		left: 0;
+		top:600px;
+	}
+	#blog_middle #con ul li{}
+	
+	#blog_middle #con ul li.active{
+		top: 0
+	}
+	/*自动播放轮播图===============================start==========*/
+		#blog_middle #con ul li #autoslide_box{
+            width: 800px;
+            height: 600px;
+            
+            position: relative;
+            overflow: hidden;
+        }
+        #blog_middle #con ul li #autoslide_ul1{
+            position: relative;
+        }
+        #blog_middle #con ul li #autoslide_ul1 li{
+            width: 800px;
+            height: 600px;
+            position: absolute;
+            left: 800px;
+            top: 0;
+        }
+        #blog_middle #con ul li #autoslide_ul1 li.active{
+            left: 0;
+        }
+        #blog_middle #con ul li #autoslide_ol1{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+        #blog_middle #con ul li #autoslide_ol1 li{
+        	position: static;
+            width: 30px;
+            height: 30px;
+            background: #2acfff;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        #blog_middle #con ul li #autoslide_ol1 li.active{
+            background: #fff;
+        }
+        #blog_middle #con ul #autoslide_box a:nth-child(1),#blog_middle #con ul li #autoslide_box a:nth-child(2){
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            line-height: 50px;
+            text-align: center;
+            background: rgba(204, 102, 204, 0.8);
+            /*position: absolute;*/
+            top: 50%;
+            margin-top: -25px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 30px;
+            transition: .4s all ease;
+            z-index: 99;
+        }
+        #blog_middle #con ul li #autoslide_box a{
+            
+        }
+        #blog_middle #con ul li #autoslide_box a:hover{
+            background: #2acfff;
+        }
+        #blog_middle #con ul li #autoslide_left{
+            left: 0;
+        }
+        #blog_middle #con ul li #autoslide_right{
+            right: 0;
+        }
+        /*作品里的展示链接*/
+     #autoslide_ul1 div.mywork_link{
+        position: relative;
+        text-align: center;
+        /*display: inline-block;*/
+        float: left;
+        width: 200px;
+        height: 200px;
+        /*background: green;*/
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin: 66px 33px 0;
+        border-radius: 50%;
+        overflow: hidden;
+        font:30px/200px 微软雅黑;
+    }
+
+    #autoslide_ul1 div.mywork_link span{
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background: rgba(255, 0, 0, .6);
+        position: absolute;
+        left: 200px;
+        top: 0;
+        color: #fff;
+        line-height: 200px;
+        text-align: center;
+        font-weight:bolder;
+        color: yellow
+    }
+	/*自动播放轮播图===============================end==========*/
+	/*#blog_middle #con ul li:nth-child(1){background:rgba(0,0,255,0.2) }
+	#blog_middle #con ul li:nth-child(2){background:rgba(0,0,255,0.2) }
+	#blog_middle #con ul li:nth-child(3){background:rgba(0,0,255,0.2) }
+	#blog_middle #con ul li:nth-child(4){background:rgba(0,0,255,0.2) }
+	#blog_middle #con ul li:nth-child(5){background:rgba(0,0,255,0.2) }*/
+	#blog_right{
+		float: right;
+		width: 260px;
+		height: 560px;
+		padding: 20px;
+		/*background:pink;*/
+
+	}
+	
+	#blog_right #headicon{
+		width: 150px;
+		height: 150px;
+		margin: 20px auto;
+		/*border: 1px solid red;*/
+		border-radius: 50%;
+		overflow: hidden;
+        box-shadow: 0 0 20px #fefcc9, 0 0 30px #feec85, 0 0 40px #ffae34, 0 0 50px #ec760c, 0 0 60px #cd4606, 0 0 70px #973716, 0 0 80px #451b0e,0 0 90px red;
+
+	}
+
+	#blog_right #headicon img{
+		width: 100%;
+
+	}
+	#blog_right #cool_clock{
+		height: 80px;text-align: center;
+        
+	}
+	#blog_right #cool_clock #cool_year{
+			display: inline-block;
+			height: 20px;
+			margin-bottom: 10px;
+			background:blue;
+			border-radius: 10px;
+			padding: 5px;
+            
+    
+		}
+	#blog_right #cool_clock #cool_time{
+			display: inline-block;
+			height: 20px;
+			margin-bottom: 10px;
+			line-height: 25px;
+			background:blue;
+			border-radius: 10px;
+			padding: 5px;
+           
+
+		}
+    #blog_right #cool_clock img{vertical-align: top;height: 100%;}
+	#blog_right #self_intro{
+		height: 220px;
+		padding-top: 20px;
+		border-top: 2px solid yellow;
+		text-align: center;
+        position: relative;
+	}
+    #blog_right .swiper-container {
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -100px;
+        margin-top: -100px;
+    }
+    #blog_right .swiper-slide {
+        /*background-position: center;*/
+        background-size:1200px;
+    }
+    #blog_right #social_contact{
+        
+        margin-top:20px auto;
+        text-align: center;
+    }
+	#blog_right #social_contact a{
+        text-decoration: none;
+        color: blue;
+		text-align: center;
+        font:30px/50px 微软雅黑;
+        transition: 0.2s all ease;
+        display: inline-block;
+        margin-right: 5px;
+	}
+    #blog_right #social_contact a:hover{
+        color: red;
+        transform: scale(1.2);
+    }
+
+	
+    /*作品piczoom 官网滑动图片*/
+    #blog_middle #con ul li #zoompic_box {
+            width: 800px;
+            height: 600px;
+
+            /*border: 1px solid #000;*/
+            /*margin: 50px auto;*/
+            position: relative;
+            overflow: hidden;
+    }
+    #blog_middle #con ul li #zoompic_box #zoompic_ul1{
+        position: absolute;
+        left: 0;
+        top: 50%;
+        margin-top: -90px;
+    }
+    #blog_middle #con ul li #zoompic_box #zoompic_ul1 li{
+        width: 260px;
+        height: 179px;
+        float: left;
+        background:none;
+
+        /*使用padding会影响li的offsetWidth，使用margin不好设定ul的宽度li的宽度*li个数*/
+        /*所以干脆不用，但不会对动态效果产生明显影响*/
+        /*margin: 0 10px;*/
+        position: relative;
+        top: 0;
+        left: 0
+    }
+    #blog_middle #con ul li #zoompic_box #zoompic_ul1 li img{
+        width: 100%;
+    }
+    /*css3作品中3D环*/
+     #blog_middle #con ul li   #css3_3Dring{
+            width: 133px;
+            height: 200px;
+            position: absolute;
+            left: 50%;
+            top: 40%;
+            margin-left: -67px;
+            margin-top: -100px;
+            transform: perspective(1200px) rotateY(0deg) rotateX(-15deg);
+            transform-style: preserve-3d;
+        }
+     #blog_middle #con ul li   #css3_3Dring li{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            -webkit-box-shadow: 0 0 20px #fff;
+            border-radius: 5px;
+            -webkit-box-reflect: below 10px -webkit-linear-gradient(rgba(0,0,0,0) 40%, rgba(0,0,0,.4));
+            transform: perspective(1200px) rotateY(0deg) translateZ(0px);
+        }
+       #blog_middle #con ul li   #css3_3Dring li a{
+        text-decoration: none;
+        color: #fff;
+        text-shadow:1px 1px white,
+        2px 2px gray,
+        3px 3px gray,
+        4px 4px gray
+        
+       } 
+    /*============================aboutme环形进度条*/
+        .circle {
+            margin:25px;
+            float: left;
+            width: 150px;
+            height: 150px;
+            position: relative;
+            border-radius: 50%;
+            background-color:orange;
+        }
+        .pie_left, .pie_right {
+            width:150px; 
+            height:150px;
+            position: absolute;
+            top: 0;left: 0;
+        }
+        .left_half, .right_half {
+            width:150px; 
+            height:150px;
+            background:white;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .pie_right, .right_half {
+            clip:rect(0,auto,auto,75px);
+        }
+        .pie_left, .left_half {
+            clip:rect(0,75px,auto,0);
+        }
+        .circle .mask {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            left: 10px;
+            top: 10px;
+            background:-webkit-radial-gradient(#990066,#990066,#9900FF,#CCFFFF);
+            background:-moz-radial-gradient(#990066,#990066,#9900FF,#CCFFFF);
+            background:-ms-radial-gradient(#990066,#990066,#9900FF,#CCFFFF);
+
+
+            position: absolute;
+            text-align: center;
+            line-height: 130px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #00aacc;
+        }
+        .circle .note{
+            position: absolute;
+            left: 0;
+            top: 100%;
+            width: 100%;
+            text-align: center;
+            font: 30px/40px 幼圆;
+            color:#669966;
+            text-shadow:-1px -1px rgba(197, 223, 248,0.8),-2px -2px rgba(197, 223, 248,0.8),-3px -3px rgba(197, 223, 248,0.8),-4px -4px rgba(197, 223, 248,0.8),-5px -5px rgba(197, 223, 248,0.8),-6px -6px rgba(197, 223, 248,0.8);
+            text-shadow:-1px -1px rgba(153, 255, 0,0.8),-2px -2px rgba(153, 255, 0,0.8),-3px -3px rgba(153, 255, 0,0.8),-4px -4px rgba(153, 255, 0,0.8);
+        }
+        /*==================about me*/
+        .aboutme_rect{
+            /*float: left;*/
+            padding-top: 250px;
+            padding-bottom: 50px;
+            /*margin-top: 50px;*/
+            width: 100%;
+            color:yellow;
+            background:rgba(51,0,51,0.8);
+        }
+        .aboutme_rect p{
+            text-indent: 110px; 
+            text-align: left;
+            margin-top: 10px;
+            position: relative;
+        }
+        .aboutme_rect em{
+            width:100px;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            display: inline-block;
+            /*background:rgba(0,255,0,0.5);*/
+            border: 2px solid yellow;
+            border-radius: 10px;
+           
+        }
+        .aboutme_rect i{
+            text-indent: -2000px;
+            position: absolute;
+            left: 0;
+            top:0;
+            background:red;
+            width: 0;
+            height: 100%;
+            border-radius: 10px;
+            z-index: 1;
+        }
+        /*=======================百度地图*/
+        #baiduMap{
+            position: absolute;
+            width: 400px;
+            height: 600px;
+            border: 2px solid blue;
+            right: 0;
+            top: 0;
+            background: url(../img/baidumap.jpg) no-repeat;
+        }
+        /*=======================联系我*/
+        #contactme{
+            position: absolute;
+            width: 400px;
+            height: 600px;
+            left: 0;
+            top:0;
+        }
+        #contactme .target{
+            text-align: center;
+            line-height: 80px;
+            font-size: 0px;
+            background: #663399;
+            position: absolute;
+            left:-100px;
+            bottom: 100px;
+            border-radius: 20px;
+            /*margin-top:40px;*/
+            height: 80px;
+            width: 80px;
+            
+            text-shadow: 0 0 15px #fff, 0 0 20px #fff, 0 0 35px #fff, 0 0 50px #ff00de, 0 0 90px #ff00de;
+            color:rgba(0,0,0,0);
+        }
+        /*========================下载简历*/
+        #downloadresume a{
+            text-decoration: none;
+            height: 25px;
+            font: 20px/25px 幼圆;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background:gray;
+            color: lime;
+            text-shadow: 0 0 5px green;
+            box-shadow: -2px 0 10px red,inset  2px 0 10px blue, 0 -2px 10px yellow, 0 2px 10px green;
+        }
